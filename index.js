@@ -23,7 +23,6 @@
     const canvas = document.getElementById('snowCanvas');
     const ctx = canvas.getContext('2d');
 
-    // 设置画布尺寸
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 

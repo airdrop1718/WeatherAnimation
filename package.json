@@ -1,6 +1,6 @@
 {
 "name": "snowflakeparticlee10ffect",
-"version": "1.0.0",
+"version": "1.0.1",
 "description": "This is a simple JavaScript code that generates a snowflake particle effect on a canvas.",
 "main": "index.js",
 "scripts": {},
