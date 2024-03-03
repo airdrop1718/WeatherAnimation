@@ -1,0 +1,26 @@
+{
+"name": "snowflakeparticlee10ffect",
+"version": "1.0.0",
+"description": "This is a simple JavaScript code that generates a snowflake particle effect on a canvas.",
+"main": "index.js",
+"scripts": {},
+"repository": {
+"type": "git",
+"url": "https://github.com/airdrop1718/SnowflakeParticleEffect.git"
+},
+"keywords": [
+"sample",
+"npm",
+"package"
+],
+"author": "airdrop1718",
+"license": "MIT",
+"dependencies": {
+"lodash": "^4.17.21",
+"axios": "^0.21.1"
+},
+"peerDependencies": {
+"react": ">=16.8.0",
+"react-dom": ">=16.8.0"
+}
+}
