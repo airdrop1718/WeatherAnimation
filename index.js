@@ -3,80 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Snowflake Effect</title>
+<title>Weather Animation</title>
 <style>
-    body {
-        margin: 0;
-        overflow: hidden;
-        background-color: #000;
-    }
-
     canvas {
-        display: block;
+        border: 1px solid black;
     }
 </style>
 </head>
 <body>
-<canvas id="snowCanvas"></canvas>
+<canvas id="canvas" width="400" height="200"></canvas>
 
 <script>
-    const canvas = document.getElementById('snowCanvas');
+    const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // 雪花数组
-    let snowflakes = [];
-
-    // 创建雪花对象
-    function createSnowflake() {
-        const x = Math.random() * canvas.width;
-        const y = 0;
-        const radius = Math.random() * 3 + 1;
-        const speed = Math.random() * 2 + 1;
-
-        return { x, y, radius, speed };
-    }
-
-    // 绘制雪花
-    function drawSnowflake(snowflake) {
+    // 定义不同天气类型的函数
+    function drawSun() {
         ctx.beginPath();
-        ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFF';
+        ctx.arc(100, 100, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'yellow';
         ctx.fill();
     }
 
-    // 更新雪花位置
-    function updateSnowflake(snowflake) {
-        snowflake.y += snowflake.speed;
-        snowflake.x += Math.sin(snowflake.y / 30) * 2; // 使雪花在y轴方向轻微摆动
+    function drawCloud() {
+        ctx.beginPath();
+        ctx.arc(100, 100, 40, 0, Math.PI * 2);
+        ctx.arc(150, 100, 50, 0, Math.PI * 2);
+        ctx.arc(200, 100, 40, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+    }
 
-        if (snowflake.y > canvas.height) {
-            snowflake.y = 0;
-            snowflake.x = Math.random() * canvas.width;
+    function drawRain() {
+        for (let i = 0; i < 100; i++) {
+            let x = Math.random() * canvas.width;
+            let y = Math.random() * canvas.height;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, y + 10);
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
         }
     }
 
-    // 渲染雪花
-    function render() {
+    // 清除画布
+    function clearCanvas() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        snowflakes.forEach(snowflake => {
-            drawSnowflake(snowflake);
-            updateSnowflake(snowflake);
-        });
-
-        requestAnimationFrame(render);
     }
 
-    // 创建多个雪花
-    for (let i = 0; i < 100; i++) {
-        snowflakes.push(createSnowflake());
+    // 动画函数
+    function drawWeatherAnimation(weatherType) {
+        clearCanvas();
+
+        switch (weatherType) {
+            case 'sun':
+                drawSun();
+                break;
+            case 'cloud':
+                drawCloud();
+                break;
+            case 'rain':
+                drawRain();
+                break;
+            default:
+                console.error('Unknown weather type');
+                break;
+        }
     }
 
-    // 开始渲染
-    render();
+    // 示例：播放不同天气类型的动画
+    setTimeout(() => drawWeatherAnimation('sun'), 1000);
+    setTimeout(() => drawWeatherAnimation('cloud'), 3000);
+    setTimeout(() => drawWeatherAnimation('rain'), 5000);
 </script>
 </body>
 </html>

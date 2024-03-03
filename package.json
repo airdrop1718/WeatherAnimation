@@ -1,12 +1,12 @@
 {
-"name": "snowflakeparticlee10ffect",
-"version": "1.0.1",
-"description": "This is a simple JavaScript code that generates a snowflake particle effect on a canvas.",
+"name": "weatheranimationclee10",
+"version": "1.0.0",
+"description": "This is a simple weather animation implemented using HTML5 Canvas and JavaScript. It demonstrates how to draw basic weather types like sunny, cloudy, and rainy.",
 "main": "index.js",
 "scripts": {},
 "repository": {
 "type": "git",
-"url": "https://github.com/airdrop1718/SnowflakeParticleEffect.git"
+"url": "https://github.com/airdrop1718/WeatherAnimation.git"
 },
 "keywords": [
 "sample",
